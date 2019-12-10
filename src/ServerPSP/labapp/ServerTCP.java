@@ -2,8 +2,6 @@ package ServerPSP.labapp;
 
 import ClientPSP.sample.Tables.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
@@ -307,6 +305,18 @@ public class ServerTCP extends Thread{
                 }
                 break;
 
+                case "GetUsers":
+                {
+                    System.out.println("Получение списка пользователей...");
+                    Outputstream.writeObject(GiveUsers());
+                }
+                break;
+                case "UpdateUser":
+                {
+                    System.out.println("Блокировка пользователя...");
+                    User user = (User)Inputstream.readObject();
+                    dbh.UpdateUserRole(user.getUserId(), user.getUserAdmin());
+                }
                 default:
                     System.out.println("Неправильная комманда");
                     break;
@@ -469,5 +479,25 @@ public class ServerTCP extends Thread{
         }
         return data;
     }
-
+    public ArrayList<User> GiveUsers()
+    {
+        DatabaseHandler dbh = new DatabaseHandler();
+        ArrayList<User> data = new ArrayList<>();
+        ResultSet resultSet = dbh.getAll(Const.USER_TABLE);
+        try
+        {
+            while(resultSet.next())
+            {
+                User user = new User();
+                user.setUserId(resultSet.getInt(Const.USERS_ID));
+                user.setUserLogin(resultSet.getString(Const.USERS_LOGIN));
+                user.setUserName(resultSet.getString(Const.USERS_USERNAME));
+                user.setUserAdmin(resultSet.getInt(Const.USERS_ADMIN));
+                data.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 }

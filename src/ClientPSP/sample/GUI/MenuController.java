@@ -3,6 +3,8 @@ package ClientPSP.sample.GUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import ClientPSP.sample.ClientTCP;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +14,7 @@ import javafx.stage.Stage;
 
 public class MenuController {
 
+    public Button Administration;
     @FXML
     private ResourceBundle resources;
 
@@ -38,6 +41,16 @@ public class MenuController {
 
     @FXML
     void initialize() {
+        if(ClientTCP.AdminOrClientId == 1)
+        {
+            Administration.setVisible(true);
+            Administration.setOnAction(event ->
+            {
+                openNewScene("/ClientPSP/sample/GUI/AdministrationManagement.fxml");
+            });
+        }
+        else
+            Administration.setVisible(false);
         BackButton.setOnAction(event -> {
             openNewScene("/ClientPSP/sample/GUI/AuthorisationGUI.fxml");
         });

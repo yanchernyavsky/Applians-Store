@@ -15,7 +15,7 @@ public class Service {
     public Boolean Registration(User user){
         System.out.println("Регистрация...");
         ClientTCP client = new ClientTCP();
-        return client.Send("Registration",user).booleanValue();
+        return client.Send("Registration", user);
     }
 
     public ArrayList<Provider> GetProvider(){
@@ -154,5 +154,19 @@ public class Service {
         System.out.println("Расчёт финально цены");
         ClientTCP client = new ClientTCP();
         client.SendCommand("CountPrice");
+    }
+
+    public ArrayList<User> GetUsers()
+    {
+        System.out.println("Получение пользователей");
+        ClientTCP client = new ClientTCP();
+        return client.SendArrayUsers("GetUsers");
+    }
+
+    public void BanUser(User user)
+    {
+        System.out.println("Блокировка пользователя (id : " + user.getUserId() + ")");
+        ClientTCP client =  new ClientTCP();
+        client.ChangeUserRole(user);
     }
 }

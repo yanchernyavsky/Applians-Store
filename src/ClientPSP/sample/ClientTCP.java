@@ -2,6 +2,7 @@ package ClientPSP.sample;
 
 import ClientPSP.sample.Tables.*;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -12,7 +13,7 @@ public class ClientTCP extends Thread{
     Socket socket;
     ObjectOutputStream Outputstream;
     ObjectInputStream  Inputstream;
-    static Integer AdminOrClientId;
+    public static Integer AdminOrClientId;
 
     public void InitSocketAndStreams(){
         try
@@ -275,5 +276,31 @@ public class ClientTCP extends Thread{
         CloseStreamsAndSocket();
         return array;
     }
+    public ArrayList<User> SendArrayUsers(String command)
+    {
+        ArrayList<User> array = new ArrayList<>();
+        InitSocketAndStreams();
+        try
+        {
+            Outputstream.writeObject(command);
+            Inputstream.readObject();
+            array = (ArrayList<User>) Inputstream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return array;
+    }
 
+    public void ChangeUserRole(User user)
+    {
+        String cmd = "UpdateUser";
+        InitSocketAndStreams();
+        try
+        {
+            Outputstream.writeObject(cmd);
+            Outputstream.writeObject(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

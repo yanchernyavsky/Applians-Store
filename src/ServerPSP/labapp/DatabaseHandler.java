@@ -1,7 +1,10 @@
 package ServerPSP.labapp;
 
 import ClientPSP.sample.Tables.*;
+import com.mysql.cj.exceptions.CJOperationNotSupportedException;
+import javafx.scene.control.ContextMenu;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 
 public class DatabaseHandler extends Configs {
@@ -284,9 +287,7 @@ public class DatabaseHandler extends Configs {
             prSt.setInt(5, order.getOrder_product_number());
             prSt.setInt(6, IsReady);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -296,11 +297,24 @@ public class DatabaseHandler extends Configs {
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(delete);
             prSt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    public ResultSet getUsers()
+    {
+        ResultSet resSet = null;
+
+        String select = "SELECT * FROM " + Const.USER_TABLE;
+
+        try
+        {
+            Statement st = getDbConnection().createStatement();
+            resSet = st.executeQuery(select);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resSet;
     }
 
     public ResultSet getUser(User user){
@@ -315,11 +329,8 @@ public class DatabaseHandler extends Configs {
             prSt.setString(2, user.getUserPassword());
 
             resSet = prSt.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-
         }
         return resSet;
     }
@@ -402,9 +413,21 @@ public class DatabaseHandler extends Configs {
         try {
             PreparedStatement prSt = getDbConnection().prepareStatement(update);
             prSt.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }
+    }
+
+    public void UpdateUserRole(int id, int role)
+    {
+        String update = "UPDATE " + Const.USER_TABLE + " SET " + Const.USERS_ADMIN + "=?" +
+                " WHERE " + Const.USERS_ID + " = " + id;
+        try
+        {
+            PreparedStatement ps = getDbConnection().prepareStatement(update);
+            ps.setInt(1, role);
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

@@ -171,7 +171,6 @@ public class ClientController {
             Service serv = new Service();
             data = FXCollections.observableArrayList(serv.GetClient());
             ClientTable.setItems(data);
-
         }
 
     public void Report(){
