@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFolder.sample.GUI.MenuController">
+    <children>
+        <AnchorPane layoutX="-5.0" layoutY="84.0" prefHeight="418.0" prefWidth="606.0" style="-fx-background-color: #ffffff;">
+            <children>
+                <Button fx:id="ProductButton" layoutX="217.0" layoutY="65.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Товар" textFill="WHITE">
+                    <font>
+                        <Font name="Century Gothic" size="22.0" />
+                    </font>
+                </Button>
+            <Button fx:id="ExitButton" layoutX="420.0" layoutY="360.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Выход" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="OrderButton" layoutX="217.0" layoutY="165.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Заказы" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="BackButton" layoutX="14.0" layoutY="360.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Назад" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="ProviderButton" layoutX="217.0" layoutY="116.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Поставщики" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="ClientButton" layoutX="217.0" layoutY="213.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Покупатели" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="Administration" layoutX="217.0" layoutY="263.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Администрирование" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="14.0" />
+               </font>
+            </Button>
+            </children></AnchorPane>
+        <Label layoutX="67.0" layoutY="26.0" text="Учёт товаров магазина электротоваров">
+            <font>
+                <Font name="Century Gothic" size="25.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

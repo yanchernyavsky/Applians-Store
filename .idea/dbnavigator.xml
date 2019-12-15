@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="ed904b41-1b41-4394-bb20-352dadc44d1b">
-        <schema name="electricshop" object-types="view, table" />
+        <schema name="electricshop" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>

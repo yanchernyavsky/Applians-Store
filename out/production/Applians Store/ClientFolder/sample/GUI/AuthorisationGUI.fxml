@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFolder.sample.GUI.AuthorizationController">
+   <children>
+      <Button fx:id="loginSighUpButton" layoutX="312.0" layoutY="296.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="177.0" style="-fx-background-color: #996690;" text="Зарегистрироваться" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="login_field" layoutX="164.0" layoutY="162.0" prefHeight="38.0" prefWidth="274.0" promptText="Логин">
+         <font>
+            <Font name="Century Gothic" size="17.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="password_field" layoutX="164.0" layoutY="220.0" prefHeight="38.0" prefWidth="274.0" promptText="Пароль">
+         <font>
+            <Font name="Century Gothic" size="17.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="authSighInButton" layoutX="113.0" layoutY="296.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="177.0" style="-fx-background-color: #996690;" text="Вход" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="52.0" layoutY="41.0" text="Учёт товаров магазина электротоваров" textAlignment="CENTER">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="ExitButton" layoutX="409.0" layoutY="445.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="177.0" style="-fx-background-color: #996690;" text="Выход" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="221.0" layoutY="96.0" prefHeight="52.0" prefWidth="161.0" text="Авторизация" textAlignment="CENTER">
+         <font>
+            <Font name="Century Gothic" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

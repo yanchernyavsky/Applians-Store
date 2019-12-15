@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientFolder.sample.GUI.AdministrationManagementController">
+    <children>
+        <Label layoutX="51.0" layoutY="14.0" text="Учёт товаров магазина электротоваров">
+            <font>
+                <Font name="Century Gothic" size="25.0" />
+            </font>
+        </Label>
+        <TabPane layoutX="-4.0" layoutY="57.0" prefHeight="442.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Пользователи">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <AnchorPane prefHeight="418.0" prefWidth="608.0" style="-fx-background-color: #ffffff;">
+                                    <children>
+                                        <Button fx:id="BackButton" layoutX="388.0" layoutY="347.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="171.0" style="-fx-background-color: #996690;" text="Назад" textFill="WHITE">
+                                            <font>
+                                                <Font name="Century Gothic" size="16.0" />
+                                            </font>
+                                        </Button>
+                                        <TableView fx:id="UsersTable" layoutX="39.0" layoutY="66.0" prefHeight="264.0" prefWidth="534.0" AnchorPane.topAnchor="66.0">
+                                            <columns>
+                                                <TableColumn fx:id="Idusers" prefWidth="135.00000381469727" text="Код пользователя" />
+                                                <TableColumn fx:id="Username" minWidth="0.0" prefWidth="124.39994812011719" text="Имя" />
+                                                <TableColumn fx:id="Login" minWidth="0.0" prefWidth="102.79998779296875" text="Логин" />
+                                                <TableColumn fx:id="Admin" minWidth="0.0" prefWidth="118.0" text="Роль" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
